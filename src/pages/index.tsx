@@ -35,15 +35,19 @@ const IndexPage: NextPage = () => {
 									<br />
 									<div className="index-underline relative z-[1] mb-5 inline-block">
 										<a href={TWITTER_LINK} target="_blank" rel="noopener noreferrer" className="px-1">
+											{/* @ts-expect-error This is quite odd */}
 											<FontAwesomeIcon icon={faTwitter} />
 										</a>
 										<a href={GITHUB_LINK} target="_blank" rel="noopener noreferrer" className="px-1">
+											{/* @ts-expect-error This is quite odd */}
 											<FontAwesomeIcon icon={faGithub} />
 										</a>
 										<a href={DISCORD_LINK} target="_blank" rel="noopener noreferrer" className="px-1">
+											{/* @ts-expect-error This is quite odd */}
 											<FontAwesomeIcon icon={faDiscord} />
 										</a>
 										<a href={TELEGRAM_LINK} target="_blank" rel="noopener noreferrer" className="px-1">
+											{/* @ts-expect-error This is quite odd */}
 											<FontAwesomeIcon icon={faTelegram} />
 										</a>
 									</div>

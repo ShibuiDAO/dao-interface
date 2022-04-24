@@ -6,7 +6,7 @@ import React from 'react';
 const Footer: React.FC = () => {
 	return (
 		<>
-			<div className="py-24 pt-16 dark:bg-darks-400 dark:text-white">
+			<div className="py-24 dark:bg-darks-400 dark:text-white">
 				<div className="container">
 					<div className="footer p-10">
 						<div>
@@ -30,15 +30,19 @@ const Footer: React.FC = () => {
 						<div className="md:place-self-center md:justify-self-end">
 							<div className="flex gap-4 text-4xl">
 								<a href={TWITTER_LINK} target="_blank" rel="noopener noreferrer">
+									{/* @ts-expect-error This is quite odd */}
 									<FontAwesomeIcon icon={faTwitter} />
 								</a>
 								<a href={GITHUB_LINK} target="_blank" rel="noopener noreferrer">
+									{/* @ts-expect-error This is quite odd */}
 									<FontAwesomeIcon icon={faGithub} />
 								</a>
 								<a href={DISCORD_LINK} target="_blank" rel="noopener noreferrer">
+									{/* @ts-expect-error This is quite odd */}
 									<FontAwesomeIcon icon={faDiscord} />
 								</a>
 								<a href={TELEGRAM_LINK} target="_blank" rel="noopener noreferrer">
+									{/* @ts-expect-error This is quite odd */}
 									<FontAwesomeIcon icon={faTelegram} />
 								</a>
 							</div>

@@ -4,7 +4,7 @@ import { Web3ReactProvider } from '@web3-react/core';
 import Footer from 'components/Footer/Footer';
 import Navbar from 'components/Navbar/Navbar';
 import PinnedComponents from 'components/PinnedComponents';
-import DefaultSeoProps from 'DefaultSeoProps';
+import DefaultSeoProps from '../DefaultSeoProps';
 import type { NextPage } from 'next';
 import PlausibleProvider from 'next-plausible';
 import { DefaultSeo } from 'next-seo';

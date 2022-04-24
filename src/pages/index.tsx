@@ -1,5 +1,6 @@
 import { faDiscord, faGithub, faTelegram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import { DISCORD_LINK, GITHUB_LINK, TELEGRAM_LINK, TWITTER_LINK } from 'constants/links';
 import { generateSitemap } from 'core/sitemap';
 import { GetStaticProps, NextPage } from 'next';
@@ -9,37 +10,49 @@ import React from 'react';
 const IndexPage: NextPage = () => {
 	return (
 		<>
-			<div
-				style={{
-					backgroundImage: 'url(/assets/misc/background.svg)',
-					backgroundSize: 'cover'
-				}}
-			>
-				<div className="container">
-					<div className="hero min-h-screen">
-						<div className="hero-content flex-col lg:flex-col-reverse">
-							<div className="text-left">
-								<h1 className="mb-5 text-5xl font-bold">The DAO behind the SHIBUI Marketplace</h1>
-								<p className="mb-5">ShibuiDAO is the DAO controlling the BOBA-native NFT marketplace - Shibui. </p>
-								<div className="mb-5 flex gap-4">
-									<a href={TWITTER_LINK} target="_blank" rel="noopener noreferrer">
-										<FontAwesomeIcon icon={faTwitter} />
-									</a>
-									<a href={GITHUB_LINK} target="_blank" rel="noopener noreferrer">
-										<FontAwesomeIcon icon={faGithub} />
-									</a>
-									<a href={DISCORD_LINK} target="_blank" rel="noopener noreferrer">
-										<FontAwesomeIcon icon={faDiscord} />
-									</a>
-									<a href={TELEGRAM_LINK} target="_blank" rel="noopener noreferrer">
-										<FontAwesomeIcon icon={faTelegram} />
-									</a>
+			<Parallax pages={1}>
+				<ParallaxLayer
+					offset={0}
+					speed={1}
+					factor={1}
+					style={{
+						backgroundImage: 'url(/assets/misc/background.svg)',
+						backgroundSize: 'auto',
+						backgroundPositionY: '60%'
+					}}
+					className="bg-white"
+				>
+					<div className="container">
+						<div className="hero min-h-screen">
+							<div className="hero-content flex-col lg:flex-col-reverse">
+								<div className="text-left text-black">
+									<h1 className="index-underline relative z-[1] mb-5 inline-block text-5xl font-bold">
+										The DAO behind the SHIBUI Marketplace
+									</h1>
+									<p className="index-underline relative z-[1] mb-5 inline-block">
+										ShibuiDAO is the DAO controlling the BOBA-native NFT marketplace - Shibui.
+									</p>
+									<br />
+									<div className="index-underline relative z-[1] mb-5 inline-block">
+										<a href={TWITTER_LINK} target="_blank" rel="noopener noreferrer" className="px-1">
+											<FontAwesomeIcon icon={faTwitter} />
+										</a>
+										<a href={GITHUB_LINK} target="_blank" rel="noopener noreferrer" className="px-1">
+											<FontAwesomeIcon icon={faGithub} />
+										</a>
+										<a href={DISCORD_LINK} target="_blank" rel="noopener noreferrer" className="px-1">
+											<FontAwesomeIcon icon={faDiscord} />
+										</a>
+										<a href={TELEGRAM_LINK} target="_blank" rel="noopener noreferrer" className="px-1">
+											<FontAwesomeIcon icon={faTelegram} />
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+				</ParallaxLayer>
+			</Parallax>
 		</>
 	);
 };

@@ -11,10 +11,9 @@
 		scrollbar-width: thin;
 	}
 
-	/* TODO: Change to tree background */
-	/* circles {
-		background-image: url(/assets/misc/background.svg);
-	} */
+	.index-underline {
+		@apply xl:before:absolute xl:before:top-[50%] xl:before:z-[-1] xl:before:h-[50%] xl:before:w-[101%] xl:before:bg-lights-300;
+	}
 
 	.unreset {
 		html {

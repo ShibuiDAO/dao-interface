@@ -1,7 +1,10 @@
+import { useConnectWallet } from '@web3-onboard/react';
 import Link from 'next/link';
 import React from 'react';
 
 const Navbar: React.FC = () => {
+	const [, connect] = useConnectWallet();
+
 	return (
 		<>
 			<header className="sticky top-0 z-20 w-full">
@@ -20,7 +23,14 @@ const Navbar: React.FC = () => {
 							{/* Right */}
 							<div className="static inset-auto right-0 ml-6 flex items-center pr-0">
 								<div className="ml-6 block w-full content-center">
-									<div className="flex justify-end space-x-4"></div>
+									<div className="flex justify-end space-x-4">
+										<button
+											className="btn cursor-pointer select-none rounded-md bg-lights-300 px-3 py-2 text-sm font-medium normal-case hover:bg-lights-400"
+											onClick={() => connect({})}
+										>
+											Connect wallet
+										</button>
+									</div>
 								</div>
 							</div>
 						</div>

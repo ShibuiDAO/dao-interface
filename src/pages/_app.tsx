@@ -11,6 +11,7 @@ import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
+import useInitWeb3Onboard from 'hooks/useInitWeb3Onboard';
 import 'styles/_App.css';
 
 config.autoAddCss = false;
@@ -20,6 +21,8 @@ const getLibrary = (provider: ExternalProvider | JsonRpcFetchFunc) => {
 };
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
+	useInitWeb3Onboard();
+
 	return (
 		<>
 			<React.StrictMode>
@@ -34,8 +37,6 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 
 							<meta httpEquiv="Page-Enter" content="RevealTrans(Duration=2.0,Transition=2)" />
 							<meta httpEquiv="Page-Exit" content="RevealTrans(Duration=3.0,Transition=12)" />
-
-							<link rel="manifest" href="/manifest.json" />
 
 							<link rel="shortcut icon" href="/favicon.ico" />
 						</Head>

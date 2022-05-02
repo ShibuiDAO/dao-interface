@@ -21,12 +21,17 @@ const Navbar: React.FC = () => {
 							<div className="container mx-auto px-8 py-2">
 								<div className="relative flex h-12 items-center justify-between">
 									{/* Left */}
-									<div className="flex flex-1 items-stretch justify-start pl-0">
+									<div className="flex items-stretch justify-start pl-0">
 										<div className="flex flex-shrink-0 items-center">
 											<Link href="/">
-												<img src="/wide.svg" alt="ShibuiDAO header wide logo." />
+												<img src="/wide.svg" alt="ShibuiDAO header wide logo." className="cursor-pointer" />
 											</Link>
 										</div>
+									</div>
+
+									{/* Center */}
+									<div className="flex justify-self-center">
+										<Link href="/locker">Locker</Link>
 									</div>
 
 									{/* Right */}

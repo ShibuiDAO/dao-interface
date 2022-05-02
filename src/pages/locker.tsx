@@ -7,8 +7,14 @@ const LockerPage: NextPage = () => {
 			<div className="container">
 				<div className="w-full pt-20">
 					<div>
-						<h1 className="text-5xl font-bold">ShibuiDAO staking</h1>
-						<p className="pt-5 text-xl">Stake your shibui in the Shibui DAO to show your longerm belief and commitment to the project.</p>
+						<h1 className="text-5xl font-bold">ShibuiDAO locking</h1>
+						<p className="pt-5 text-xl">
+							Lock your{' '}
+							<span role="img" aria-label="$SHIBUI">
+								🌊
+							</span>{' '}
+							in the Shibui DAO to show your longerm belief and commitment to the project.
+						</p>
 					</div>
 					<div className="pt-16">
 						<h2 className="text-3xl font-bold">My voting power</h2>

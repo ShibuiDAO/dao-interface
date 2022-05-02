@@ -28,5 +28,10 @@ export const onboard = init({
 		icon: '/logo.svg',
 		logo: '/wide.svg',
 		description: 'Hello'
+	},
+	accountCenter: {
+		desktop: {
+			enabled: false
+		}
 	}
 });

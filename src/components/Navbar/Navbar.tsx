@@ -1,9 +1,13 @@
 import { useConnectWallet } from '@web3-onboard/react';
+import AccountName from 'components/Account/AccountName';
+import { useWeb3 } from 'hooks/useWeb3';
 import Link from 'next/link';
 import React from 'react';
+import { Else, If, Then } from 'react-if';
 
 const Navbar: React.FC = () => {
 	const [, connect] = useConnectWallet();
+	const [, , wallet] = useWeb3();
 
 	return (
 		<>
@@ -24,12 +28,19 @@ const Navbar: React.FC = () => {
 							<div className="static inset-auto right-0 ml-6 flex items-center pr-0">
 								<div className="ml-6 block w-full content-center">
 									<div className="flex justify-end space-x-4">
-										<button
-											className="btn cursor-pointer select-none rounded-md bg-lights-300 px-3 py-2 text-sm font-medium normal-case hover:bg-lights-400"
-											onClick={() => connect({})}
-										>
-											Connect wallet
-										</button>
+										<If condition={Boolean(wallet)}>
+											<Then>
+												<AccountName className="btn cursor-pointer select-none rounded-md bg-lights-300 px-3 py-2 text-sm font-medium normal-case hover:bg-lights-400" />
+											</Then>
+											<Else>
+												<button
+													className="btn cursor-pointer select-none rounded-md bg-lights-300 px-3 py-2 text-sm font-medium normal-case hover:bg-lights-400"
+													onClick={() => connect({})}
+												>
+													Connect wallet
+												</button>
+											</Else>
+										</If>
 									</div>
 								</div>
 							</div>

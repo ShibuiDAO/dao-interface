@@ -40,7 +40,13 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 							<div className="min-h-screen">
 								<Navbar />
 
-								<main className="min-h-screen dark:bg-darks-400 dark:text-white">
+								<main
+									style={{
+										backgroundImage: 'url(/assets/misc/background_circles.svg)',
+										backgroundSize: 'contain'
+									}}
+									className="min-h-screen dark:bg-white dark:text-black"
+								>
 									<Component {...pageProps} />
 								</main>
 

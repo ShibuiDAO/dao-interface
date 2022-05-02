@@ -6,7 +6,7 @@ import React from 'react';
 const Footer: React.FC = () => {
 	return (
 		<>
-			<div className="py-24 dark:bg-darks-400 dark:text-white">
+			<div className="py-24 pt-16 dark:bg-darks-400 dark:text-white">
 				<div className="container">
 					<div className="footer p-10">
 						<div>

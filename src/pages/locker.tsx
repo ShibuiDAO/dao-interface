@@ -1,8 +1,17 @@
 import LockForm from 'components/DAO/Locker/LockForm';
+import { BigNumber } from 'ethers';
+import { formatEther } from 'ethers/lib/utils';
+import { useUserSHIBUIBalance } from 'hooks/contracts/useUserSHIBUIBalance';
+import { useWeb3 } from 'hooks/useWeb3';
 import { NextPage } from 'next';
 import React from 'react';
 
 const LockerPage: NextPage = () => {
+	const [, , wallet] = useWeb3();
+	const account = wallet ? wallet.account : null;
+
+	const { data: shibuiBalance = 0 } = useUserSHIBUIBalance(account);
+
 	return (
 		<>
 			<div className="container">
@@ -37,7 +46,7 @@ const LockerPage: NextPage = () => {
 										<span className="text-4xl" role="img" aria-label="$SHIBUI">
 											🌊{' '}
 										</span>
-										<span className="relative top-1 text-4xl font-bold">0</span>
+										<span className="relative top-1 text-4xl font-bold">{formatEther(BigNumber.from(shibuiBalance))}</span>
 										<p className="pt-2 text-xl">My Shibui balance</p>
 									</div>
 									<div>

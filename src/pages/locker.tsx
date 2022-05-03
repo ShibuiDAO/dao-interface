@@ -1,3 +1,4 @@
+import LockForm from 'components/DAO/Locker/LockForm';
 import { NextPage } from 'next';
 import React from 'react';
 
@@ -7,7 +8,17 @@ const LockerPage: NextPage = () => {
 			<div className="container">
 				<div className="w-full pt-20">
 					<div>
-						<h1 className="text-5xl font-bold">ShibuiDAO locking</h1>
+						<h1 className="text-5xl font-bold">
+							ShibuiDAO (
+							<span role="img" aria-label="$SHIBUI">
+								🌊
+							</span>
+							,
+							<span role="img" aria-label="$SHIBUI">
+								🌊
+							</span>
+							) locking
+						</h1>
 						<p className="pt-5 text-xl">
 							Lock your{' '}
 							<span role="img" aria-label="$SHIBUI">
@@ -42,8 +53,14 @@ const LockerPage: NextPage = () => {
 					</div>
 					<div className="pt-20">
 						<h2 className="text-3xl font-bold">Lock Shibui tokens</h2>
-						<p className="pt-5 text-xl">By locking tokens you’ll get</p>
-						<div className="mt-6 w-full rounded-lg bg-darks-150"></div>
+						<p className="pt-5 text-xl">
+							By locking tokens you support the long-term vision of the project while still retaining voting power.{' '}
+						</p>
+						<div className="mt-6 w-full rounded-lg border-2 border-black">
+							<div className="py-11 px-20">
+								<LockForm />
+							</div>
+						</div>
 					</div>
 					<div className="pt-20">
 						<h2 className="text-3xl font-bold">Total voting power</h2>

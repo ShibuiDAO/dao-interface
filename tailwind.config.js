@@ -46,7 +46,8 @@ module.exports = {
 				xxs: '0.5rem'
 			},
 			fontFamily: {
-				shibui: ["'Sora'", 'sans-serif', 'Helvetica', 'Arial']
+				shibui: ["'Sora'", 'sans-serif', 'Helvetica', 'Arial'],
+				inter: ["'Inter'", 'sans-serif']
 			}
 		}
 	},

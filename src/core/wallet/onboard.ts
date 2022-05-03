@@ -5,12 +5,14 @@ import { CustomWindow, InjectedNameSpace, InjectedWalletModule } from '@web3-onb
 import { init } from '@web3-onboard/react';
 import walletConnectModule from '@web3-onboard/walletconnect';
 import { HEX_CHAIN_IDS, RPC_URLS, SupportedChainId } from 'constants/chains';
+import { ONTOLogo } from './icons/onto';
 
 declare const window: CustomWindow;
 
 function getInjectedInterface(identity: string): () => Promise<{ provider: EIP1193Provider }> {
+	// @ts-expect-error TODO: Go file issue on Github of web3-onboard and complain like a Karen.
 	// eslint-disable-next-line @typescript-eslint/require-await
-	return async () => ({
+	return async (_: any) => ({
 		provider: (window.ethereum.providers && Array.isArray(window.ethereum.providers)
 			? window.ethereum.providers.find((provider) => Boolean(provider[identity]))
 			: window.ethereum) as EIP1193Provider
@@ -21,7 +23,9 @@ const onto: InjectedWalletModule = {
 	label: 'Onto',
 	injectedNamespace: InjectedNameSpace.Ethereum,
 	checkProviderIdentity: ({ provider }) => Boolean(provider) && Boolean(provider.isONTO),
-	getIcon: async () => (await import('./icons/onto')).default,
+	// @ts-expect-error TODO: Go file issue on Github of web3-onboard and complain like a Karen.
+	// eslint-disable-next-line @typescript-eslint/require-await
+	getIcon: async (_: any) => ONTOLogo,
 	getInterface: getInjectedInterface('isONTO'),
 	platforms: ['mobile']
 };

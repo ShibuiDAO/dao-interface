@@ -55,9 +55,9 @@
     "@storybook/react": "^6.4.19",
     "@tailwindcss/postcss7-compat": "npm:@tailwindcss/postcss7-compat",
     "@types/node": "^17.0.21",
-    "@types/react": "^17.0.39",
-    "@types/react-datepicker": "^4.4.1",
-    "@types/react-dom": "^17.0.11",
+    "@types/react": "17.0.39",
+    "@types/react-datepicker": "^4.3.4",
+    "@types/react-dom": "17.0.11",
     "@typescript-eslint/eslint-plugin": "^5.8.0",
     "@typescript-eslint/parser": "5.8.0",
     "autoprefixer": "10.4.2",
@@ -77,6 +77,10 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "typescript": "^4.5.5"
   },
+	"resolutions": {
+    "@types/react": "17.0.39",
+    "@types/react-dom": "17.0.11"
+	},
   "volta": {
     "node": "16.10.0",
     "yarn": "1.22.17"

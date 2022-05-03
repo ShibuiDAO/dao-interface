@@ -15,7 +15,6 @@ const DatePickerFormik: React.FC<DatePickerFormikProps> = ({ ...props }) => {
 	const [field] = useField(props);
 
 	return (
-		// @ts-expect-error Weird collision
 		<DatePicker
 			{...props}
 			{...field}

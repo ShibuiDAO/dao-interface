@@ -14,16 +14,19 @@ const Footer: React.FC = () => {
 						</div>
 						<div>
 							<span className="footer-title">Developer</span>
-							<a href={GITHUB_LINK} className="link-hover link">
+							{/* eslint-disable-next-line prettier/prettier */}
+							<a href={GITHUB_LINK} className="link link-hover">
 								Github
 							</a>
-							<a href="https://docs.shibuidao.com" className="link-hover link">
+							{/* eslint-disable-next-line prettier/prettier */}
+							<a href="https://docs.shibuidao.com" className="link link-hover">
 								Documentation
 							</a>
 						</div>
 						<div>
 							<span className="footer-title">Applications</span>
-							<a href="https://shibuinft.com" className="link-hover link">
+							{/* eslint-disable-next-line prettier/prettier */}
+							<a href="https://shibuinft.com" className="link link-hover">
 								ShibuiNFT
 							</a>
 						</div>

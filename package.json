@@ -19,6 +19,7 @@
     "@fortawesome/react-fontawesome": "^0.1.17",
     "@headlessui/react": "^1.5.0",
     "@react-spring/parallax": "^9.4.4",
+    "@shibuidao/ve-shibui": "https://github.com/ShibuiDAO/veShibui",
     "@web3-onboard/core": "^2.2.6",
     "@web3-onboard/gnosis": "^2.0.1",
     "@web3-onboard/injected-wallets": "^2.0.5",
@@ -39,6 +40,7 @@
     "react-hot-toast": "^2.2.0",
     "react-if": "^4.1.4",
     "react-tippy": "^1.4.0",
+    "ts-node": "^10.7.0",
     "tw-elements": "^1.0.0-alpha9"
   },
   "devDependencies": {

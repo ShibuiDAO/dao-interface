@@ -9,8 +9,9 @@
     "storybook:start": "start-storybook -p 9009",
     "storybook:build": "build-storybook",
     "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx src",
-    "postinstall": "yarn generate:typechain:shibui",
-    "generate:typechain:shibui": "typechain --target ethers-v5 --always-generate-overloads --discriminate-types --out-dir ./src/types/contracts/shibui './node_modules/@shibuidao/shibui/abis/*.json'"
+    "postinstall": "yarn generate:typechain:shibui && yarn generate:typechain:ve-shibui",
+    "generate:typechain:shibui": "typechain --target ethers-v5 --always-generate-overloads --discriminate-types --out-dir ./src/types/contracts/shibui './node_modules/@shibuidao/shibui/abis/*.json'",
+    "generate:typechain:ve-shibui": "typechain --target ethers-v5 --always-generate-overloads --discriminate-types --out-dir ./src/types/contracts/veShibui './node_modules/@shibuidao/ve-shibui/abis/*.json'"
   },
   "dependencies": {
     "@elementfi/react-query-typechain": "^1.2.0",

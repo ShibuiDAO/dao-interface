@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 export interface DatePickerFormikProps
 	extends Pick<FieldInputProps<any>, 'value' | 'onChange'>,
-		Pick<ReactDatePickerProps, 'minDate' | 'minTime' | 'maxTime' | 'showTimeSelect' | 'inline'> {
+		Pick<ReactDatePickerProps, 'minDate' | 'minTime' | 'maxTime' | 'showTimeSelect' | 'inline' | 'dateFormat'> {
 	name: string;
 	className?: string;
 }

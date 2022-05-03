@@ -2700,7 +2700,7 @@
 
 "@shibuidao/ve-shibui@https://github.com/ShibuiDAO/veShibui":
   version "0.1.0"
-  resolved "https://github.com/ShibuiDAO/veShibui#298737e04107f89f8e385b0bf3dc309956317382"
+  resolved "https://github.com/ShibuiDAO/veShibui#1ece3cae87ff55f4e4e6fd9bfb6c6ae3b6aa5b21"
   dependencies:
     "@nomiclabs/hardhat-ethers" "^2.0.5"
     "@nomiclabs/hardhat-vyper" "^3.0.0"

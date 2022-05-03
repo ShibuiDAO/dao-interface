@@ -1,9 +1,7 @@
 import { FieldInputProps, useField, useFormikContext } from 'formik';
 import React from 'react';
 import DatePicker, { ReactDatePickerProps } from 'react-datepicker';
-
 import 'react-datepicker/dist/react-datepicker.css';
-import { createPortal } from 'react-dom';
 
 export interface DatePickerFormikProps
 	extends Pick<FieldInputProps<any>, 'value' | 'onChange'>,
@@ -17,6 +15,7 @@ const DatePickerFormik: React.FC<DatePickerFormikProps> = ({ ...props }) => {
 	const [field] = useField(props);
 
 	return (
+		// @ts-expect-error Weird collision
 		<DatePicker
 			{...props}
 			{...field}
@@ -25,7 +24,6 @@ const DatePickerFormik: React.FC<DatePickerFormikProps> = ({ ...props }) => {
 			onChange={(val) => {
 				setFieldValue(field.name, val);
 			}}
-			popperContainer={({ children }) => createPortal(children, document.body)}
 		/>
 	);
 };

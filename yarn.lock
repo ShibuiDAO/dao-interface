@@ -1210,6 +1210,13 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
+"@elementfi/elf-council-typechain@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@elementfi/elf-council-typechain/-/elf-council-typechain-1.0.2.tgz#9ba918cb32b3ef26b36bd2ad8be332b356f14352"
+  integrity sha512-B/AT0Mr/o+ABbDzEPEk3F2s4OtVs7KKIDrsdHXMjswMP4VpVwhr2eQ6sr6w9agiT7vfNIiE2Xgum9w5Qzxmfdw==
+  dependencies:
+    tsc "^2.0.3"
+
 "@elementfi/react-query-typechain@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@elementfi/react-query-typechain/-/react-query-typechain-1.2.0.tgz#1acff91fd20f5f8358c613f26a621493802987ee"
@@ -2729,7 +2736,7 @@
 
 "@shibuidao/ve-shibui@https://github.com/ShibuiDAO/veShibui":
   version "0.1.0"
-  resolved "https://github.com/ShibuiDAO/veShibui#7de09025eb68f237ca25a3f8cdba0b2a0e598746"
+  resolved "https://github.com/ShibuiDAO/veShibui#db2f2df99a9ca99c4050ee0d665bcb052c2d7fa6"
   dependencies:
     "@nomiclabs/hardhat-ethers" "^2.0.5"
     "@nomiclabs/hardhat-vyper" "^3.0.0"
@@ -13237,6 +13244,11 @@ ts-pnp@^1.1.6:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
   integrity sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==
+
+tsc@^2.0.3:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/tsc/-/tsc-2.0.4.tgz#5f6499146abea5dca4420b451fa4f2f9345238f5"
+  integrity sha512-fzoSieZI5KKJVBYGvwbVZs/J5za84f2lSTLPYf6AGiIf43tZ3GNrI1QzTLcjtyDDP4aLxd46RTZq1nQxe7+k5Q==
 
 tsconfig-paths@^3.14.1:
   version "3.14.1"

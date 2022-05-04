@@ -1,10 +1,10 @@
 import DatePickerFormik from 'components/forms/fields/DatePickerFormik';
-import { votingEscrowContract } from 'core/contracts';
+import { shibuiTokenContract, votingEscrowContract } from 'core/contracts';
 import { BigNumber } from 'ethers';
 import { formatEther, parseEther } from 'ethers/lib/utils';
 import { Form, Formik } from 'formik';
-import { useApproveShibui } from 'hooks/contracts/useApproveShibui';
 import { useCreateVotingEscrowLock } from 'hooks/contracts/useCreateVotingEscrowLock';
+import useSetTokenAllowance from 'hooks/contracts/useSetTokenAllowance';
 import useShibuiAllowance from 'hooks/contracts/useShibuiAllowance';
 import useShibuiBalance from 'hooks/contracts/useShibuiBalance';
 import { useWeb3 } from 'hooks/useWeb3';
@@ -21,7 +21,7 @@ const LockForm: React.FC = () => {
 	const account = wallet ? wallet.account : null;
 
 	const { mutate: createLock } = useCreateVotingEscrowLock(signer);
-	const { mutate: approveShibui, isLoading: approveShibuiLoading } = useApproveShibui(signer);
+	const { mutate: approveShibui, isLoading: approveShibuiLoading } = useSetTokenAllowance(signer, shibuiTokenContract.address);
 	const { data: shibuiBalance = 0 } = useShibuiBalance(account);
 	const { data: shibuiAllowance = 0 } = useShibuiAllowance(account, votingEscrowContract.address);
 

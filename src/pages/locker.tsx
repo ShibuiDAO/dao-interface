@@ -100,7 +100,11 @@ const LockerPage: NextPage = () => {
 										})}{' '}
 										%
 									</span>
-									<p className="pt-2 text-xl">Percentage of total Shibui locked</p>
+									<p className="pt-2 text-xl">
+										Percentage of total
+										<br />
+										Shibui locked
+									</p>
 								</div>
 								<div>
 									<span className="text-4xl" role="img" aria-label="$SHIBUI">

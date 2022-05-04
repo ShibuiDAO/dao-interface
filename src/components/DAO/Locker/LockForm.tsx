@@ -14,6 +14,8 @@ import { Else, If, Then } from 'react-if';
 const WEEK_MS = 604800000;
 
 const LockForm: React.FC = () => {
+	const disable = true;
+
 	const [, , wallet] = useWeb3();
 	const signer = wallet ? wallet.provider.getSigner() : undefined;
 	const account = wallet ? wallet.account : null;
@@ -119,7 +121,8 @@ const LockForm: React.FC = () => {
 									<Then>
 										<button
 											type="submit"
-											className="btn border border-white bg-lights-300 font-shibui text-sm lowercase text-white hover:bg-lights-400"
+											disabled={disable}
+											className="btn border border-white bg-lights-300 font-shibui text-sm lowercase text-white hover:bg-lights-400 disabled:text-darks-200"
 										>
 											confirm
 										</button>
@@ -134,7 +137,7 @@ const LockForm: React.FC = () => {
 													{ gasLimit: 275_000 }
 												]);
 											}}
-											disabled={approveShibuiLoading}
+											disabled={approveShibuiLoading && !disable}
 											className="btn border border-white bg-lights-300 font-shibui text-sm lowercase text-white hover:bg-lights-400 disabled:text-darks-200"
 										>
 											approve

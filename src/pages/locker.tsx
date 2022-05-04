@@ -81,8 +81,8 @@ const LockerPage: NextPage = () => {
 					<div className="pt-20">
 						<h2 className="text-3xl font-bold">Total voting power</h2>
 						<p className="pt-5 text-xl">General stats about the ShibuiDAO voting power</p>
-						<div className="mx-14 mt-8">
-							<div className="grid w-full grid-cols-4 grid-rows-1">
+						<div className="mx-14 mt-16">
+							<div className="grid w-full grid-cols-3 grid-rows-2 gap-6 gap-y-12">
 								<div>
 									<span className="text-4xl" role="img" aria-label="$SHIBUI">
 										🌊{' '}

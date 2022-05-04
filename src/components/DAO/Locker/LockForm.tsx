@@ -113,7 +113,9 @@ const LockForm: React.FC = () => {
 								</div>
 							</div>
 							<div className="mt-12">
-								<If condition={BigNumber.from(shibuiAllowance).gte(BigNumber.from(parseEther(props.values.amount.toString())))}>
+								<If
+									condition={BigNumber.from(shibuiAllowance).gte(BigNumber.from(parseEther((props.values.amount || 0).toString())))}
+								>
 									<Then>
 										<button
 											type="submit"

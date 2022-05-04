@@ -19,7 +19,7 @@ const LockForm: React.FC = () => {
 	const account = wallet ? wallet.account : null;
 
 	const { mutate: createLock } = useCreateVotingEscrowLock(signer);
-	const { mutate: approveShibui } = useApproveShibui(signer);
+	const { mutate: approveShibui, isLoading: approveShibuiLoading } = useApproveShibui(signer);
 	const { data: shibuiBalance = 0 } = useShibuiBalance(account);
 	const { data: shibuiAllowance = 0 } = useShibuiAllowance(account, votingEscrowContract.address);
 
@@ -134,7 +134,8 @@ const LockForm: React.FC = () => {
 													{ gasLimit: 275_000 }
 												]);
 											}}
-											className="btn border border-white bg-lights-300 font-shibui text-sm lowercase text-white hover:bg-lights-400"
+											disabled={approveShibuiLoading}
+											className="btn border border-white bg-lights-300 font-shibui text-sm lowercase text-white hover:bg-lights-400 disabled:text-darks-200"
 										>
 											approve
 										</button>

@@ -1,16 +1,23 @@
 import LockForm from 'components/DAO/Locker/LockForm';
-import { BigNumber } from 'ethers';
-import { formatEther } from 'ethers/lib/utils';
-import { useUserSHIBUIBalance } from 'hooks/contracts/useUserSHIBUIBalance';
+import { votingEscrowContract } from 'core/contracts';
+import useShibuiBalance from 'hooks/contracts/useShibuiBalance';
+import useShibuiTotalSupply from 'hooks/contracts/useShibuiTotalSupply';
+import useVeShibuiBalance from 'hooks/contracts/useVeShibuiBalance';
+import useVeShibuiTotalSupply from 'hooks/contracts/useVeShibuiTotalSupply';
 import { useWeb3 } from 'hooks/useWeb3';
 import { NextPage } from 'next';
 import React from 'react';
+import { calculate18DecimalPercentage, format18DecimalBalance } from 'utils/utils';
 
 const LockerPage: NextPage = () => {
 	const [, , wallet] = useWeb3();
 	const account = wallet ? wallet.account : null;
 
-	const { data: shibuiBalance = 0 } = useUserSHIBUIBalance(account);
+	const { data: shibuiBalance = 0 } = useShibuiBalance(account);
+	const { data: shibuiEscrowed = 0 } = useShibuiBalance(votingEscrowContract.address);
+	const { data: veShibuiBalance = 0 } = useVeShibuiBalance(account);
+	const { data: veShibuiTotalSupply = 0 } = useVeShibuiTotalSupply();
+	const { data: shibuiTotalSupply = 0 } = useShibuiTotalSupply();
 
 	return (
 		<>
@@ -46,14 +53,14 @@ const LockerPage: NextPage = () => {
 										<span className="text-4xl" role="img" aria-label="$SHIBUI">
 											🌊{' '}
 										</span>
-										<span className="relative top-1 text-4xl font-bold">{formatEther(BigNumber.from(shibuiBalance))}</span>
+										<span className="relative top-1 text-4xl font-bold">{format18DecimalBalance(shibuiBalance)}</span>
 										<p className="pt-2 text-xl">My Shibui balance</p>
 									</div>
 									<div>
 										<span className="text-4xl" role="img" aria-label="$SHIBUI">
 											🌊{' '}
 										</span>
-										<span className="relative top-1 text-4xl font-bold">0</span>
+										<span className="relative top-1 text-4xl font-bold">{format18DecimalBalance(veShibuiBalance)}</span>
 										<p className="pt-2 text-xl">My locked Shibui</p>
 									</div>
 								</div>
@@ -80,21 +87,26 @@ const LockerPage: NextPage = () => {
 									<span className="text-4xl" role="img" aria-label="$SHIBUI">
 										🌊{' '}
 									</span>
-									<span className="relative top-1 text-4xl font-bold">0</span>
+									<span className="relative top-1 text-4xl font-bold">{format18DecimalBalance(shibuiEscrowed)}</span>
 									<p className="pt-2 text-xl">Total Shibui vote-locked</p>
 								</div>
 								<div>
 									<span className="text-4xl" role="img" aria-label="$SHIBUI">
 										🌊{' '}
 									</span>
-									<span className="relative top-1 text-4xl font-bold">0</span>
+									<span className="relative top-1 text-4xl font-bold">
+										{calculate18DecimalPercentage(shibuiTotalSupply, shibuiEscrowed).toLocaleString('fullwide', {
+											maximumFractionDigits: 5
+										})}{' '}
+										%
+									</span>
 									<p className="pt-2 text-xl">Percentage of total Shibui locked</p>
 								</div>
 								<div>
 									<span className="text-4xl" role="img" aria-label="$SHIBUI">
 										🌊{' '}
 									</span>
-									<span className="relative top-1 text-4xl font-bold">0</span>
+									<span className="relative top-1 text-4xl font-bold">{format18DecimalBalance(veShibuiTotalSupply)}</span>
 									<p className="pt-2 text-xl">Total veShibui</p>
 								</div>
 								<div>

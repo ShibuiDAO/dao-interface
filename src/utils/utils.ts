@@ -1,4 +1,6 @@
 import { CHAIN_INFO, SupportedChainId } from 'constants/chains';
+import { BigNumberish } from 'ethers';
+import { formatEther } from 'ethers/lib/utils';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 export function noop() {}
@@ -30,4 +32,18 @@ export function formatExplorerLink(type: ExplorerType, data: ExplorerData) {
 			return `${CHAIN_INFO[chainId].explorer}/block/${block}`;
 		}
 	}
+}
+
+export function format18DecimalBalance(val: BigNumberish): string {
+	return Number(formatEther(val)).toLocaleString('fullwide', {
+		maximumFractionDigits: 5,
+		minimumFractionDigits: 2
+	});
+}
+
+export function calculate18DecimalPercentage(full: BigNumberish, part: BigNumberish): number {
+	const fullNumber = Number(formatEther(full));
+	const partNumber = Number(formatEther(part));
+
+	return (100 * partNumber) / fullNumber;
 }

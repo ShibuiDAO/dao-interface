@@ -1,8 +1,8 @@
-import { Provider, Web3Provider } from '@ethersproject/providers';
-import { useConnectWallet } from '@web3-onboard/react';
+import { Web3Provider } from '@ethersproject/providers';
 import type { WalletState } from '@web3-onboard/core';
+import { useConnectWallet } from '@web3-onboard/react';
 
-export function useWeb3(): [connecting: boolean, walletRaw: WalletState | null, wallet: { account: string; provider: Provider } | null] {
+export function useWeb3(): [connecting: boolean, walletRaw: WalletState | null, wallet: { account: string; provider: Web3Provider } | null] {
 	const [{ wallet, connecting }] = useConnectWallet();
 
 	return [

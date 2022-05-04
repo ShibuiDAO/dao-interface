@@ -1,30 +1,30 @@
-import { ExternalProvider, JsonRpcFetchFunc, Web3Provider } from '@ethersproject/providers';
 import { config } from '@fortawesome/fontawesome-svg-core';
-import { Web3ReactProvider } from '@web3-react/core';
 import Footer from 'components/Footer/Footer';
 import Navbar from 'components/Navbar/Navbar';
 import PinnedComponents from 'components/PinnedComponents';
-import DefaultSeoProps from '../DefaultSeoProps';
+import { queryClient } from 'core/query';
+import useInitWeb3Onboard from 'hooks/useInitWeb3Onboard';
 import type { NextPage } from 'next';
 import PlausibleProvider from 'next-plausible';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
+import { QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+import DefaultSeoProps from '../DefaultSeoProps';
 import 'styles/_App.css';
 
 config.autoAddCss = false;
 
-const getLibrary = (provider: ExternalProvider | JsonRpcFetchFunc) => {
-	return new Web3Provider(provider);
-};
-
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
+	useInitWeb3Onboard();
+
 	return (
 		<>
 			<React.StrictMode>
-				<PlausibleProvider domain="shibuidao.com">
-					<Web3ReactProvider getLibrary={getLibrary}>
+				<QueryClientProvider client={queryClient}>
+					<PlausibleProvider domain="shibuidao.com">
 						<Head>
 							<meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
 							<meta httpEquiv="X-UA-Compatible" content="ie=edge" />
@@ -35,8 +35,6 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 							<meta httpEquiv="Page-Enter" content="RevealTrans(Duration=2.0,Transition=2)" />
 							<meta httpEquiv="Page-Exit" content="RevealTrans(Duration=3.0,Transition=12)" />
 
-							<link rel="manifest" href="/manifest.json" />
-
 							<link rel="shortcut icon" href="/favicon.ico" />
 						</Head>
 						<DefaultSeo {...DefaultSeoProps} />
@@ -46,7 +44,13 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 								<div className="min-h-screen">
 									<Navbar />
 
-									<main className="min-h-screen dark:bg-darks-400 dark:text-white">
+									<main
+										style={{
+											backgroundImage: 'url(/assets/misc/background_circles.svg)',
+											backgroundSize: 'contain'
+										}}
+										className="min-h-screen dark:bg-white dark:text-black"
+									>
 										<Component {...pageProps} />
 									</main>
 
@@ -56,8 +60,10 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 								</div>
 							</PinnedComponents>
 						</>
-					</Web3ReactProvider>
-				</PlausibleProvider>
+					</PlausibleProvider>
+
+					<ReactQueryDevtools />
+				</QueryClientProvider>
 			</React.StrictMode>
 		</>
 	);

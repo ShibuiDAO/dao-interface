@@ -16,11 +16,9 @@ const IndexPage: NextPage = () => {
 					speed={1}
 					factor={1}
 					style={{
-						backgroundImage: 'url(/assets/misc/background.svg)',
-						backgroundSize: 'auto',
-						backgroundPositionY: '60%'
+						backgroundImage: 'url(/assets/misc/background_scenery.svg)',
+						backgroundSize: 'auto'
 					}}
-					className="bg-white"
 				>
 					<div className="container">
 						<div className="hero min-h-screen">

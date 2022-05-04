@@ -29,6 +29,7 @@ module.exports = {
 				},
 				darks: {
 					100: '#FFFFFF',
+					150: '#C4C4C4',
 					200: '#3A3D40',
 					300: '#1E1F23',
 					400: '#191B1F'
@@ -45,7 +46,8 @@ module.exports = {
 				xxs: '0.5rem'
 			},
 			fontFamily: {
-				shibui: ["'Sora'", 'sans-serif', 'Helvetica', 'Arial']
+				shibui: ["'Sora'", 'sans-serif', 'Helvetica', 'Arial'],
+				inter: ["'Inter'", 'sans-serif']
 			}
 		}
 	},

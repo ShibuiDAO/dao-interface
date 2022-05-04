@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	--onboard-connect-sidebar-background: #191b1f;
+	--onboard-connect-sidebar-color: white;
+
+	--onboard-font-family-normal: Sora;
+	--onboard-font-family-semibold: Sora Semibold;
+	--onboard-font-family-light: Sora Light;
+}
+
 @layer base {
 	body {
 		@apply font-shibui;
@@ -327,7 +336,7 @@
 ::-webkit-scrollbar {
 	width: 8px;
 	height: 10px;
-    @apply bg-darks-200;
+	@apply bg-darks-200;
 }
 ::-webkit-scrollbar-thumb {
 	border-radius: 8px;

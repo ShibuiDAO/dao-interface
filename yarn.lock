@@ -1441,7 +1441,7 @@
     "@ethersproject/properties" "^5.5.0"
     "@ethersproject/strings" "^5.5.0"
 
-"@ethersproject/abi@5.6.1", "@ethersproject/abi@^5.1.2", "@ethersproject/abi@^5.5.0", "@ethersproject/abi@^5.6.0":
+"@ethersproject/abi@5.6.1", "@ethersproject/abi@^5.1.2", "@ethersproject/abi@^5.5.0", "@ethersproject/abi@^5.6.0", "@ethersproject/abi@^5.6.1":
   version "5.6.1"
   resolved "https://registry.yarnpkg.com/@ethersproject/abi/-/abi-5.6.1.tgz#f7de888edeb56b0a657b672bdd1b3a1135cd14f7"
   integrity sha512-0cqssYh6FXjlwKWBmLm3+zH2BNARoS5u/hxbz+LpQmcDB3w0W553h2btWui1/uZp2GBM/SI3KniTuMcYyHpA5w==
@@ -2729,7 +2729,7 @@
 
 "@shibuidao/ve-shibui@https://github.com/ShibuiDAO/veShibui":
   version "0.1.0"
-  resolved "https://github.com/ShibuiDAO/veShibui#1ece3cae87ff55f4e4e6fd9bfb6c6ae3b6aa5b21"
+  resolved "https://github.com/ShibuiDAO/veShibui#7de09025eb68f237ca25a3f8cdba0b2a0e598746"
   dependencies:
     "@nomiclabs/hardhat-ethers" "^2.0.5"
     "@nomiclabs/hardhat-vyper" "^3.0.0"

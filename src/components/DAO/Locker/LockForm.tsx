@@ -1,11 +1,15 @@
 import DatePickerFormik from 'components/forms/fields/DatePickerFormik';
+import { votingEscrowContract } from 'core/contracts';
 import { BigNumber } from 'ethers';
 import { formatEther, parseEther } from 'ethers/lib/utils';
 import { Form, Formik } from 'formik';
+import { useApproveShibui } from 'hooks/contracts/useApproveShibui';
 import { useCreateVotingEscrowLock } from 'hooks/contracts/useCreateVotingEscrowLock';
+import useShibuiAllowance from 'hooks/contracts/useShibuiAllowance';
 import useShibuiBalance from 'hooks/contracts/useShibuiBalance';
 import { useWeb3 } from 'hooks/useWeb3';
 import React from 'react';
+import { Else, If, Then } from 'react-if';
 
 const WEEK_MS = 604800000;
 
@@ -15,7 +19,9 @@ const LockForm: React.FC = () => {
 	const account = wallet ? wallet.account : null;
 
 	const { mutate: createLock } = useCreateVotingEscrowLock(signer);
+	const { mutate: approveShibui } = useApproveShibui(signer);
 	const { data: shibuiBalance = 0 } = useShibuiBalance(account);
+	const { data: shibuiAllowance = 0 } = useShibuiAllowance(account, votingEscrowContract.address);
 
 	return (
 		<>
@@ -107,12 +113,31 @@ const LockForm: React.FC = () => {
 								</div>
 							</div>
 							<div className="mt-12">
-								<button
-									type="submit"
-									className="btn border border-white bg-lights-300 font-shibui text-sm lowercase text-white hover:bg-lights-400"
-								>
-									confirm
-								</button>
+								<If condition={BigNumber.from(shibuiAllowance).gte(BigNumber.from(parseEther(props.values.amount.toString())))}>
+									<Then>
+										<button
+											type="submit"
+											className="btn border border-white bg-lights-300 font-shibui text-sm lowercase text-white hover:bg-lights-400"
+										>
+											confirm
+										</button>
+									</Then>
+									<Else>
+										<button
+											type="button"
+											onClick={() => {
+												return approveShibui([
+													votingEscrowContract.address,
+													BigNumber.from(parseEther(props.values.amount.toString())),
+													{ gasLimit: 275_000 }
+												]);
+											}}
+											className="btn border border-white bg-lights-300 font-shibui text-sm lowercase text-white hover:bg-lights-400"
+										>
+											approve
+										</button>
+									</Else>
+								</If>
 							</div>
 						</>
 					</Form>

@@ -6,8 +6,9 @@ export const shibuiTokenContract = Shibui__factory.connect('0xF08AD7C3f6b1c6843b
 
 export const votingEscrowContract = VotingEscrow__factory.connect('0xabAF0A59Bd6E937F852aC38264fda35EC239De82', bobaProvider);
 
-const gaugedExternalLPPairAddresss: ReadonlyArray<string> = [];
-const gaugedExternalLPPairContracts: Map<string, RewardsOnlyGauge> = new Map();
-gaugedExternalLPPairAddresss.forEach((lpPair: string) =>
-	gaugedExternalLPPairContracts.set(lpPair, RewardsOnlyGauge__factory.connect(lpPair, bobaProvider))
+export const externalLPPairsRewardsOnlyGauges: Map<string, string> = new Map([
+	['SHIBUI-USDT<>WAGMIv3', '0x6b8f4Fa6E44e923f5A995A87e4d79B3Bb9f8aaa3']
+]);
+export const externalLPPairsRewardsOnlyGaugeContracts: Map<string, RewardsOnlyGauge> = new Map(
+	[...externalLPPairsRewardsOnlyGauges.entries()].map(([name, pair]) => [name, RewardsOnlyGauge__factory.connect(pair, bobaProvider)])
 );

@@ -1,9 +1,7 @@
 import LockForm from 'components/DAO/Locker/LockForm';
-import { votingEscrowContract } from 'core/contracts';
-import useShibuiBalance from 'hooks/contracts/useShibuiBalance';
-import useShibuiTotalSupply from 'hooks/contracts/useShibuiTotalSupply';
-import useVeShibuiBalance from 'hooks/contracts/useVeShibuiBalance';
-import useVeShibuiTotalSupply from 'hooks/contracts/useVeShibuiTotalSupply';
+import { shibuiTokenContract, votingEscrowContract } from 'core/contracts';
+import useTokenBalance from 'hooks/contracts/useTokenBalance';
+import useTokenTotalSupply from 'hooks/contracts/useTokenTotalSupply';
 import { useWeb3 } from 'hooks/useWeb3';
 import { NextPage } from 'next';
 import React from 'react';
@@ -13,11 +11,11 @@ const LockerPage: NextPage = () => {
 	const [, , wallet] = useWeb3();
 	const account = wallet ? wallet.account : null;
 
-	const { data: shibuiBalance = 0 } = useShibuiBalance(account);
-	const { data: shibuiEscrowed = 0 } = useShibuiBalance(votingEscrowContract.address);
-	const { data: veShibuiBalance = 0 } = useVeShibuiBalance(account);
-	const { data: veShibuiTotalSupply = 0 } = useVeShibuiTotalSupply();
-	const { data: shibuiTotalSupply = 0 } = useShibuiTotalSupply();
+	const { data: shibuiBalance = 0 } = useTokenBalance(account, shibuiTokenContract.address);
+	const { data: shibuiEscrowed = 0 } = useTokenBalance(votingEscrowContract.address, shibuiTokenContract.address);
+	const { data: veShibuiBalance = 0 } = useTokenBalance(account, votingEscrowContract.address);
+	const { data: veShibuiTotalSupply = 0 } = useTokenTotalSupply(votingEscrowContract.address);
+	const { data: shibuiTotalSupply = 0 } = useTokenTotalSupply(shibuiTokenContract.address);
 
 	return (
 		<>

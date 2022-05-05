@@ -5,8 +5,8 @@ import { formatEther, parseEther } from 'ethers/lib/utils';
 import { Form, Formik } from 'formik';
 import { useCreateVotingEscrowLock } from 'hooks/contracts/useCreateVotingEscrowLock';
 import useSetTokenAllowance from 'hooks/contracts/useSetTokenAllowance';
-import useShibuiAllowance from 'hooks/contracts/useShibuiAllowance';
-import useShibuiBalance from 'hooks/contracts/useShibuiBalance';
+import useTokenAllowance from 'hooks/contracts/useTokenAllowance';
+import useTokenBalance from 'hooks/contracts/useTokenBalance';
 import { useWeb3 } from 'hooks/useWeb3';
 import React from 'react';
 import { Else, If, Then } from 'react-if';
@@ -22,8 +22,8 @@ const LockForm: React.FC = () => {
 
 	const { mutate: createLock } = useCreateVotingEscrowLock(signer);
 	const { mutate: approveShibui, isLoading: approveShibuiLoading } = useSetTokenAllowance(signer, shibuiTokenContract.address);
-	const { data: shibuiBalance = 0 } = useShibuiBalance(account);
-	const { data: shibuiAllowance = 0 } = useShibuiAllowance(account, votingEscrowContract.address);
+	const { data: shibuiBalance = 0 } = useTokenBalance(account, shibuiTokenContract.address);
+	const { data: shibuiAllowance = 0 } = useTokenAllowance(account, votingEscrowContract.address, shibuiTokenContract.address);
 
 	return (
 		<>

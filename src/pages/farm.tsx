@@ -47,7 +47,18 @@ const WAGMIFarmPage: NextPage = () => {
 										🌊💲{' '}
 									</span>
 									<span className="relative top-1 text-4xl font-bold">{format18DecimalBalance(lpPairBalance)}</span>
-									<p className="pt-2 text-xl">My ShibuiUSDT balance</p>
+									<p className="pt-2 text-xl">
+										My{' '}
+										<a
+											href="https://oolongswap.com/#/add/0xF08AD7C3f6b1c6843ba027AD54Ed8DDB6D71169b/0x5DE1677344D3Cb0D7D465c10b72A8f60699C062d"
+											className="border-b border-dotted border-black"
+											target="_blank"
+											rel="noreferrer"
+										>
+											ShibuiUSDT LP
+										</a>{' '}
+										balance
+									</p>
 								</div>
 								<div>
 									<span className="text-4xl" role="img" aria-label="$SHIBUI">

@@ -24,7 +24,7 @@ const WithdrawRewardsOnlyGaugeForm: React.FC<WithdrawRewardsOnlyGaugeFormProps> 
 			<Formik
 				initialValues={{ amount: 0 }}
 				onSubmit={(values) => {
-					return withdraw([BigNumber.from(parseEther(values.amount.toString())), { gasLimit: 600_000 }]);
+					return withdraw([BigNumber.from(parseEther(values.amount.toString())), { gasLimit: 700_000 }]);
 				}}
 			>
 				{(props) => (

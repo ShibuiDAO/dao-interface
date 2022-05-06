@@ -31,7 +31,7 @@ const DepositRewardsOnlyGaugeForm: React.FC<DepositRewardsOnlyGaugeFormProps> = 
 			<Formik
 				initialValues={{ amount: 0 }}
 				onSubmit={(values) => {
-					return deposit([BigNumber.from(parseEther(values.amount.toString())), { gasLimit: 600_000 }]);
+					return deposit([BigNumber.from(parseEther(values.amount.toString())), { gasLimit: 700_000 }]);
 				}}
 			>
 				{(props) => (
@@ -82,7 +82,7 @@ const DepositRewardsOnlyGaugeForm: React.FC<DepositRewardsOnlyGaugeFormProps> = 
 												return approveLpPair([
 													gaugeAddress,
 													BigNumber.from(parseEther(props.values.amount.toString())),
-													{ gasLimit: 200_000 }
+													{ gasLimit: 400_000 }
 												]);
 											}}
 											disabled={approveLpPairLoading}

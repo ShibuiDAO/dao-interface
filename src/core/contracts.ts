@@ -10,5 +10,5 @@ export const externalLPPairsRewardsOnlyGauges: Map<string, string> = new Map([
 	['SHIBUI-USDT<>WAGMIv3', '0x6b8f4Fa6E44e923f5A995A87e4d79B3Bb9f8aaa3']
 ]);
 export const externalLPPairsRewardsOnlyGaugeContracts: Map<string, RewardsOnlyGauge> = new Map(
-	[...externalLPPairsRewardsOnlyGauges.entries()].map(([name, pair]) => [name, RewardsOnlyGauge__factory.connect(pair, bobaProvider)])
+	[...externalLPPairsRewardsOnlyGauges.entries()].map(([_, pair]) => [pair, RewardsOnlyGauge__factory.connect(pair, bobaProvider)])
 );

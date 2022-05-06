@@ -49,7 +49,7 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
 											backgroundImage: 'url(/assets/misc/background_circles.svg)',
 											backgroundSize: 'contain'
 										}}
-										className="min-h-screen dark:bg-white dark:text-black"
+										className="min-h-screen dark:bg-lights-200 dark:text-black"
 									>
 										<Component {...pageProps} />
 									</main>

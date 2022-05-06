@@ -45,5 +45,6 @@ export function calculate18DecimalPercentage(full: BigNumberish, part: BigNumber
 	const fullNumber = Number(formatEther(full));
 	const partNumber = Number(formatEther(part));
 
-	return (100 * partNumber) / fullNumber;
+	const result = (100 * partNumber) / fullNumber;
+	return Number.isNaN(result) ? 0 : result;
 }

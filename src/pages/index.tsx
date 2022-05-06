@@ -17,7 +17,7 @@ const IndexPage: NextPage = () => {
 					factor={1}
 					style={{
 						backgroundImage: 'url(/assets/misc/background_scenery.svg)',
-						backgroundSize: 'auto'
+						backgroundSize: 'cover'
 					}}
 				>
 					<div className="container">

@@ -38,7 +38,7 @@ const LockerPage: NextPage = () => {
 							<span role="img" aria-label="$SHIBUI">
 								🌊
 							</span>{' '}
-							in the Shibui DAO to show your longerm belief and commitment to the project.
+							in the Shibui DAO to show your long-term belief and commitment to the project.
 						</p>
 					</div>
 					<div className="pt-16">

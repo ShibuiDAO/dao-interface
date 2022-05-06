@@ -30,8 +30,9 @@ const Navbar: React.FC = () => {
 									</div>
 
 									{/* Center */}
-									<div className="flex justify-self-center">
+									<div className="flex gap-16 justify-self-center">
 										<Link href="/locker">Locker</Link>
+										<Link href="/farm">Farm</Link>
 									</div>
 
 									{/* Right */}

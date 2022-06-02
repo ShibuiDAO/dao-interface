@@ -103,7 +103,7 @@ const WAGMIFarmPage: NextPage = () => {
 								type="button"
 								className="btn w-full border border-white bg-lights-300 font-shibui text-sm lowercase text-white hover:bg-lights-400 disabled:text-darks-200"
 								disabled={!Boolean(signer)}
-								onClick={() => claimRewards([account || '', account || '', { gasLimit: 5_000_00 }])}
+								onClick={() => claimRewards([account || '', account || '', { gasLimit: 1_000_000 }])}
 							>
 								{Boolean(signer) ? 'claim rewards' : 'connect wallet'}
 							</button>

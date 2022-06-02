@@ -2,6 +2,7 @@ import DepositRewardsOnlyGaugeForm from 'components/DAO/Farm/DepositRewardsOnlyG
 import WithdrawRewardsOnlyGaugeForm from 'components/DAO/Farm/WithdrawRewardsOnlyGaugeForm';
 import { externalLPPairsRewardsOnlyGauges } from 'core/contracts';
 import useClaimableRewardsOnlyGaugeRewards from 'hooks/contracts/rewardsOnlyGauge/useClaimableRewardsOnlyGaugeRewards';
+import { useClaimRewards } from 'hooks/contracts/rewardsOnlyGauge/useClaimRewards';
 import useTokenBalance from 'hooks/contracts/useTokenBalance';
 import useTokenTotalSupply from 'hooks/contracts/useTokenTotalSupply';
 import { useWeb3 } from 'hooks/useWeb3';
@@ -17,11 +18,14 @@ const WAGMIFarmPage: NextPage = () => {
 
 	const [, , wallet] = useWeb3();
 	const account = wallet ? wallet.account : null;
+	const signer = wallet ? wallet.provider.getSigner() : undefined;
 
 	const { data: lpPairBalance = 0 } = useTokenBalance(account, shibuiUSDT);
 	const { data: gaugeDepositBalance = 0 } = useTokenBalance(account, gaugeAddress);
 	const { data: gaugeTotalSupply = 0 } = useTokenTotalSupply(gaugeAddress);
 	const { data: claimableRewards = 0 } = useClaimableRewardsOnlyGaugeRewards(account, WAGMIv3, gaugeAddress);
+
+	const { mutate: claimRewards } = useClaimRewards(signer, gaugeAddress);
 
 	return (
 		<>
@@ -92,6 +96,17 @@ const WAGMIFarmPage: NextPage = () => {
 							<div className="py-11 px-20">
 								<WithdrawRewardsOnlyGaugeForm gaugeAddress={gaugeAddress} />
 							</div>
+						</div>
+
+						<div className="mt-8 w-full">
+							<button
+								type="button"
+								className="btn w-full border border-white bg-lights-300 font-shibui text-sm lowercase text-white hover:bg-lights-400 disabled:text-darks-200"
+								disabled={!Boolean(signer)}
+								onClick={() => claimRewards([account || '', account || '', { gasLimit: 5_000_00 }])}
+							>
+								{Boolean(signer) ? 'claim rewards' : 'connect wallet'}
+							</button>
 						</div>
 					</div>
 				</div>

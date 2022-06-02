@@ -50,7 +50,6 @@ const DepositRewardsOnlyGaugeForm: React.FC<DepositRewardsOnlyGaugeFormProps> = 
 										type="number"
 										className="bg-transparent"
 									/>
-									{/* eslint-disable-next-line no-alert */}
 									<button
 										type="button"
 										className="border-r border-black pr-2 text-xs font-bold"
